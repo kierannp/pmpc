@@ -286,11 +286,11 @@
   <Type name="opls_285" class="opls_285" element="C" mass="12.011"/>
   <Type name="opls_286" class="opls_286" element="N" mass="14.0067"/>
   <Type name="opls_287" class="opls_287" element="N" mass="14.0067"/>
-  <Type name="opls_288" class="opls_288" element="N" mass="14.0067"/>
+  <Type name="opls_288" class="N3" element="N" mass="14.0067" def="[N;X4](C)(C)(C)C" desc="N (R4N+)  JPC,90,2174 (1986)" doi="10.1021/j100401a037"/>
   <Type name="opls_289" class="opls_289" element="H" mass="1.008"/>
   <Type name="opls_290" class="opls_290" element="H" mass="1.008"/>
-  <Type name="opls_291" class="opls_291" element="C" mass="12.011"/>
-  <Type name="opls_292" class="opls_292" element="C" mass="12.011"/>
+  <Type name="opls_291" class="CT" element="C" mass="12.011" def="[C;X4](H)(H)(H)([N;%opls_288])" desc="C in  CH3NH3+" doi="10.1021/ja9621760"/>
+  <Type name="opls_292" class="CT" element="C" mass="12.011" def="[C;X4](H)(H)([C;X4])([N;%opls_288])" desc="C in  RCH2NH3+" doi="10.1021/ja9621760"/>
   <Type name="opls_292B" class="opls_292B" element="C" mass="12.011"/>
   <Type name="opls_293" class="opls_293" element="C" mass="12.011"/>
   <Type name="opls_293B" class="opls_293B" element="C" mass="12.011"/>
@@ -439,16 +439,16 @@
   <Type name="opls_435" class="opls_435" element="H" mass="1.008"/>
   <Type name="opls_436" class="opls_436" mass="0.0"/>
   <Type name="opls_437" class="opls_437" element="O" mass="15.9994"/>
-  <Type name="opls_440" class="opls_440" element="P" mass="30.97376" def="[P;X4]([O;X1])([O;X1])([O;X2][C;X4])([O;X2][C;X4])" desc="P bonded to 4 Os, 1 double bond and 3 single bonds"/>
-  <Type name="opls_441" class="opls_441" element="O" mass="15.9994" def="[O;X1]([P;%opls_440])" desc="double bonded O to P in Me2PO4-"/>
-  <Type name="opls_442" class="opls_442" element="O" mass="15.9994" def="[O;X2]([P;%opls_440])([C;X4])" desc="O bonded to Me and P in Me2PO4-"/>
-  <Type name="opls_443" class="opls_443" element="C" mass="12.011" def="[C;X4]([O;X2][P;%opls_440][C;X4])(H)(H)H" desc="C bonded to O and 3 H in Me2PO4-"/>
-  <Type name="opls_444" class="opls_444" element="H" mass="1.008" def="[H;X1][C;%opls_443]" desc="H bonded to C Me2PO4-"/>
-  <Type name="opls_445" class="opls_445" element="P" mass="30.97376" def="[P;X4]([O;X1])([O;X1])([O;X1])([O;X2][C;X4])" desc="P in MeOPO3--"/>
-  <Type name="opls_446" class="opls_446" element="O" mass="15.9994" def="[O;X1]([P;%opls_445])" desc="O= in MeOPO3--"/>
-  <Type name="opls_447" class="opls_447" element="O" mass="15.9994" def="[O;X2]([P;%opls_445])([C;X4])" desc="OMe in MeOPO3--"/>
-  <Type name="opls_448" class="opls_448" element="C" mass="12.011" def="[C;X4]([O;X2][P;%opls_445][C;X4])(H)(H)H" desc="C  in MeOPO3--"/>
-  <Type name="opls_449" class="opls_444" element="H" mass="1.008" def="[H;X1][C;%opls_448]" desc="H bonded to C Me2PO4-"/>
+  <Type name="opls_440" class="P" element="P" mass="30.97376" def="[P;X4]([O;X1])([O;X1])([O;X2][C;X4])([O;X2][C;X4])" desc="P bonded to 4 Os, 1 double bond and 3 single bonds"/>
+  <Type name="opls_441" class="O2" element="O" mass="15.9994" def="[O;X1]([P;%opls_440])" desc="double bonded O to P in Me2PO4-"/>
+  <Type name="opls_442" class="OS" element="O" mass="15.9994" def="[O;X2]([P;%opls_440])([C;X4])" desc="O bonded to Me and P in Me2PO4-"/>
+  <Type name="opls_443" class="CT" element="C" mass="12.011" def="[C;X4]([O;%opls_442])(C)(H)H" desc="C bonded to O and 3 H in Me2PO4-"/>
+  <Type name="opls_444" class="HC" element="H" mass="1.008" def="[H;X1][C;%opls_443]" overrides="opls_140" desc="H bonded to C Me2PO4-"/>
+  <Type name="opls_445" class="P" element="P" mass="30.97376" def="[P;X4]([O;X1])([O;X1])([O;X1])([O;X2][C;X4])" desc="P in MeOPO3--"/>
+  <Type name="opls_446" class="O2" element="O" mass="15.9994" def="[O;X1]([P;%opls_445])" desc="O= in MeOPO3--"/>
+  <Type name="opls_447" class="OS" element="O" mass="15.9994" def="[O;X2]([P;%opls_445])([C;X4])" desc="OMe in MeOPO3--"/>
+  <Type name="opls_448" class="CT" element="C" mass="12.011" def="[C;X4]([O;X2][P;%opls_445][C;X4])(H)(H)H" desc="C  in MeOPO3--"/>
+  <Type name="opls_449" class="CT" element="H" mass="1.008" def="[H;X1][C;%opls_448]" desc="H bonded to C Me2PO4-"/>
   <Type name="opls_450" class="opls_450" element="P" mass="30.97376"/>
   <Type name="opls_451" class="opls_451" element="O" mass="15.9994"/>
   <Type name="opls_452" class="opls_452" element="O" mass="15.9994"/>
@@ -812,6 +812,7 @@
   <Type name="MW" class="MW" mass="0.0"/>
   <Type name="HW_tip4pew" class="HW_tip4pew" element="H" mass="1.008"/>
   <Type name="OW_tip4pew" class="OW_tip4pew" element="O" mass="16.0"/>
+  <Type name="opls_9999" class="H" element="H" mass="1.008" def="[H;X1](Si)"/>
   <Type name="opls_1001" class="OG" element="O" mass="15.9994" def="[O][Si;%opls_1002]"/>
   <Type name="opls_1002" class="SI" element="Si" mass="28.0855" def="[Si]"/>
   <Type name="opls_1003" class="SI" element="Si" mass="28.0855" def="[Si;X4]([O])([O])([O])([C])" overrides="opls_1002"/>
@@ -1126,6 +1127,7 @@
   <Bond class1="SI" class2="OG" length="0.165" k="251040.0"/>
   <Bond class1="SI" class2="OH" length="0.165" k="251040.0"/>
   <Bond class1="SI" class2="CT" length="0.185" k="167360.0"/>
+  <Bond class1="SI" class2="H" length="0.185" k="167360.0"/>
  </HarmonicBondForce>
  <HarmonicAngleForce>
   <Angle class1="HW" class2="OW" class3="HW" angle="1.91113553093" k="627.6"/>
@@ -3967,6 +3969,7 @@
   <Atom type="MW" charge="0.0" sigma="1.0" epsilon="0.0"/>
   <Atom type="HW_tip4pew" charge="0.0" sigma="1.0" epsilon="0.0"/>
   <Atom type="OW_tip4pew" charge="0.0" sigma="0.316435" epsilon="0.680946"/>
+  <Atom type="opls_9999" charge="0.06" sigma="0.25" epsilon="0.12552"/>
   <Atom type="opls_1001" charge="-0.43" sigma="0.3" epsilon="0.71128"/>
   <Atom type="opls_1002" charge="0.86" sigma="0.4" epsilon="0.4184"/>
   <Atom type="opls_1003" charge="0.745" sigma="0.4" epsilon="0.4184"/>

@@ -2,4 +2,5 @@
 .ipynb_checkpoints
 pmpc_share2
 single_chain
+__pycache__
 single_chain_production

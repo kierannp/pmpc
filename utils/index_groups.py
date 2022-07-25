@@ -3,7 +3,7 @@ from __future__ import division
 import numpy as np
 
 
-def generate_index_groups(system, terminal_groups, freeze_thickness=0.5):
+def generate_index_groups(system, freeze_thickness=0.5):
     bounding_box = system.boundingbox
     bot_of_box = bounding_box.mins[2]
     top_of_box = bounding_box.maxs[2]
@@ -15,16 +15,12 @@ def generate_index_groups(system, terminal_groups, freeze_thickness=0.5):
     top_surface = []
     bottom_chains = []
     top_chains = []
-    bottom_termini = []
-    top_termini = []
     for i, particle in enumerate(system.particles()):
         z = particle.pos[2]
         ancestors = [ancestor.name for ancestor in particle.ancestors()]
         if z > middle:
             if 'Alkylsilane' in ancestors:
                 top_chains.append(i + 1)
-                if any([tg.title() in ancestors for tg in terminal_groups]):
-                    top_termini.append(i + 1)
             else:
                 top_surface.append(i + 1)
                 if z > top_of_box - freeze_thickness:
@@ -32,8 +28,6 @@ def generate_index_groups(system, terminal_groups, freeze_thickness=0.5):
         else:
             if 'Alkylsilane' in ancestors:
                 bottom_chains.append(i + 1)
-                if any([tg.title() in ancestors for tg in terminal_groups]):
-                    bottom_termini.append(i + 1)
             else:
                 bottom_surface.append(i + 1)
                 if z < bot_of_box + freeze_thickness:
@@ -58,13 +52,6 @@ def generate_index_groups(system, terminal_groups, freeze_thickness=0.5):
     chains = np.hstack((bottom_chains, top_chains))
     print('chains: {}'.format(len(chains)))
 
-    bottom_termini = np.asarray(bottom_termini)
-    print('bottom_termini: {}'.format(len(bottom_termini)))
-    top_termini = np.asarray(top_termini)
-    print('top_termini: {}'.format(len(top_termini)))
-    all_terminal_groups = np.hstack((bottom_termini, top_termini))
-    print('terminal_groups: {}'.format(len(all_terminal_groups)))
-
     bottom = np.hstack((bottom_surface, bottom_chains))
     print('bottom: {}'.format(len(bottom)))
     top = np.hstack((top_surface, top_chains))
@@ -82,9 +69,6 @@ def generate_index_groups(system, terminal_groups, freeze_thickness=0.5):
                     'top_surface': top_surface,
                     'chains': chains,
                     'bottom_chains': bottom_chains,
-                    'top_chains': top_chains,
-                    'terminal_groups': all_terminal_groups,
-                    'bottom_termini': bottom_termini,
-                    'top_termini': top_termini}
+                    'top_chains': top_chains}
 
     return index_groups
